@@ -11,7 +11,7 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isCardPopupOpen, setIsCardPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState('');
+  const [selectedCard, setSelectedCard] = React.useState({});
 
 
   const handleEditAvatarClick = () => {
@@ -36,7 +36,7 @@ function App() {
     setIsEditProfileOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsCardPopupOpen(false);
-    setSelectedCard('');
+    setSelectedCard({});
   }
 
 
@@ -65,7 +65,7 @@ function App() {
           id="edit-form-name-input"
           placeholder="Enter your name"
           required />
-          <span className="form__error edit-form-name-input-error"></span>
+          <span className="form__error edit-form-name-input-error" />
 
           <input 
           name="about"
@@ -76,7 +76,7 @@ function App() {
           id="edit-form-info-input"
           placeholder="Enter your info"
           required />
-          <span className="form__error edit-form-info-input-error"></span>
+          <span className="form__error edit-form-info-input-error" />
       </PopupWithForm>
 
       <PopupWithForm
@@ -94,7 +94,7 @@ function App() {
         id="add-form-title-input"
         placeholder="Title" 
         required/>
-        <span className="form__error add-form-title-input-error"></span>
+        <span className="form__error add-form-title-input-error" />
 
         <input 
         name="link"
@@ -103,7 +103,7 @@ function App() {
         id="add-form-link-input"
         placeholder="Image link"
         required />
-        <span className="form__error add-form-link-input-error"></span>
+        <span className="form__error add-form-link-input-error" />
       </PopupWithForm>
 
       <PopupWithForm
@@ -120,7 +120,7 @@ function App() {
         id="edit-avatar-form-link-input"
         placeholder="Profile photo link"
         required />
-        <span className="form__error edit-avatar-form-link-input-error"></span>
+        <span className="form__error edit-avatar-form-link-input-error" />
       </PopupWithForm>
 
       <PopupWithForm

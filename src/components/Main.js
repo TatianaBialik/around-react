@@ -9,30 +9,20 @@ function Main(props) {
   const [userAvatar, setUserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
 
-  // api.getUserInfo()
-  //   .then(res => {
-  //     setUserName(res.name);
-  //     setUserDescription(res.about);
-  //     setUserAvatar(res.avatar);
-  //   })
-
-  //  api.getInitialCards()
-  //    .then(res => {
-  //      setCards(res);
-  //    })
-
   React.useEffect(() => {
     api.getUserInfo()
     .then(res => {
       setUserName(res.name);
       setUserDescription(res.about);
       setUserAvatar(res.avatar);
-    });
+    })
+    .catch(err => console.log(err));
 
     api.getInitialCards()
     .then(res => {
       setCards(res);
     })
+    .catch(err => console.log(err));
   }, [])
 
   return (
@@ -57,16 +47,14 @@ function Main(props) {
             type="button" 
             className="action-button profile__edit-button"
             aria-label="Edit profile information button"
-            onClick={props.onEditProfileClick}>
-            </button>
+            onClick={props.onEditProfileClick} />
           </div>
         </div>
         <button 
         type="button" 
         className="action-button profile__add-button"
         aria-label="Add a card button"
-        onClick={props.onAddPlaceClick}>
-        </button>
+        onClick={props.onAddPlaceClick} />
       </section>
   
       <section className="gallery">
@@ -81,7 +69,6 @@ function Main(props) {
       </section>
     </main>
   )
-
 }
 
 export default Main;
