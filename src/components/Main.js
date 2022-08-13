@@ -1,12 +1,11 @@
-import React from 'react';
-import api from '../utils/api';
+import React, { useContext } from 'react';
 import editAvatar from '../images/edit_avatar.svg';
 import Card from './Card';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function Main(props) {
   
-  const currentUser = React.useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <main className="main">

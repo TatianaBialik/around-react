@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
-  const [name, setName] = React.useState('');
-  const [description, setDescription] = React.useState('');
-  const currentUser = React.useContext(CurrentUserContext);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const currentUser = useContext(CurrentUserContext);
 
   function handleChangeName(e) {
     setName(e.target.value);
@@ -24,7 +24,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
     });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
   }, [currentUser]);
@@ -47,7 +47,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
       id="edit-form-name-input"
       placeholder="Enter your name"
       onChange={handleChangeName}
-      defaultValue={currentUser.name}
+      value={name || ''}
       required />
       <span className="form__error edit-form-name-input-error" />
 
@@ -60,7 +60,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
       id="edit-form-info-input"
       placeholder="Enter your info"
       onChange={handleChangeDescription}
-      defaultValue={currentUser.about}
+      value={description || ''}
       required />
       <span className="form__error edit-form-info-input-error" />
     </PopupWithForm>
